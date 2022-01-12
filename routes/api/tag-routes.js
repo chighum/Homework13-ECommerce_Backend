@@ -46,6 +46,7 @@ router.put("/:id", async (req, res) => {
   // update a tag's name by its `id` value
   /* req.body should look like this...
     {
+      id: "id number"
       tag_name: "tag name",
     }
   */
