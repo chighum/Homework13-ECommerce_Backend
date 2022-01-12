@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
       include: [{ model: Product }],
     });
     res.status(200).json(allCategories);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
@@ -24,20 +24,20 @@ router.get("/:id", async (req, res) => {
       include: [{ model: Product }],
     });
     res.status(200).json(category);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   // create a new category
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   // update a category by its `id` value
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   // delete a category by its `id` value
   try {
     const category = await Category.destroy({ where: req.params.id });
@@ -46,7 +46,7 @@ router.delete("/:id", (req, res) => {
       return;
     }
     res.status(200).json(category);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });

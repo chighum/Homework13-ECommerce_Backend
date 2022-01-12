@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
       include: [{ model: ProductTag }],
     });
     res.status(200).json(allProducts);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
       include: [{ model: ProductTag }],
     });
     res.status(200).json(product);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
@@ -114,7 +114,7 @@ router.delete("/:id", async (req, res) => {
       return;
     }
     res.status(200).json(product);
-  } catch {
+  } catch (err) {
     res.status(400).json(err);
   }
 });
